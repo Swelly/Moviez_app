@@ -1,9 +1,27 @@
 <h1> Movies </h1>
-
-
 <form action="/movies" method="get">
     <input type="text" name="search">
     <button>Search</button>
 </form>
 
-<%= @results %>
+<% @results.each do |movie| %>
+    <p><%= movie.title %>
+        <%= button_to "Savor it", create_movie_path(
+        :title => movie.title,
+        :year => movie.year,
+        :director => movie.director,
+        :plot => movie.plot,
+        :mpaa_rating => movie.mpaa_rating,
+        :favorite => false)%>
+
+        <%= button_to "Favor-it",
+        create_movie_path(
+        :title => movie.title,
+        :year => movie.year,
+        :director => movie.director,
+        :plot => movie.plot,
+        :mpaa_rating => movie.mpaa_rating,
+        :favorite => true)%>
+
+<% end %>
+    </p>
