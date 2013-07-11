@@ -3,4 +3,5 @@ Moviez::Application.routes.draw do
   resources :movies
   get '/movies/search' => 'movies#search', :as => 'search'
   post '/movies/create' => 'movies#create', :as => 'create_movie'
+  get '/movies/:id/delete' => 'movies#destroy', :as => 'delete_movie'
 end

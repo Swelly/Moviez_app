@@ -25,14 +25,14 @@
 
 <% end %>
     </p>
-<% if @movies or @favorites %>
-    <p> Favored Movies: </p>
+<p> Favored Movies: </p>
     <% if @favorites %>
         <% @favorites.each do |movie| %>
-            <%= movie.title %>
+            <ul>
+                <%= link_to movie.title.to_s, movie_path(movie)%>
+            </ul>
         <% end %>
     <% else %>
         <p> My, such high standards you have</p>
     <% end %>
-<% end %>
 

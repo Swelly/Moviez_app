@@ -17,5 +17,8 @@
 <% else %>
   <h4>Not a favorite</h4>
 <% end %>
-
-<%= button_to 'Remove Movie', destroy_movie_path(@movie.id)%>
+<!-- cant remember how to route to destroy -->
+<form action="/movies/<%= @movie.id %>/delete" method="get">
+  <input type="hidden" name="_method" value="destroy">
+  <button>Delete Task</button>
+</form>

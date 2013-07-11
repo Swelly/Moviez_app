@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
     @movies = params[:search]
       @results = Imdb::Search.new(params[:search].to_s).movies[0..9]
       @search = params[:search]
+      @favorites = Movie.where(:favorite => true)
   end
 
 #showing movie by unique id
