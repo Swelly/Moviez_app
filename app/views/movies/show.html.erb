@@ -1,25 +1,24 @@
-<h1><%= @movie.title %></h1>
-<% if @movie.director %>
-  <h3>Directed by: </h3><p><%= @movie.director.split('\n').first %></p>
+<h1><%= @imdb_movie.title %></h1>
+<% if @imdb_movie.director %>
+  <h3>Directed by: </h3><p><%= @imdb_movie.director.split('\n').first %></p>
 <% else %>
   nil
 <% end %>
-<h3>Starring<%= @movie.actors %></h3>
+<h3>Starring<%= @imdb_movie.actors.class %></h3>
 <h3>Plot: </h3>
   <p>
-    "<%=@movie.plot%>"
+    "<%=@imdb_movie.plot%>"
   </p>
 
-
-<h4> Rated: <%= @movie.mpaa_rating %></h4>
-<h4> Your Rating: <%= @movie.rating %></h4>
-<% if @movie.favorite %>
-  <h3>I've watched this movie an unhealthy amount of times</h3>
+<% if @imdb_movie.favorite = true %>
+  <h3>Your Rating: <%= @imdb_movie.rating = 100 %></h3>
 <% else %>
-  <h4>Not a favorite</h4>
+  <%= @imdb_movie.rating == 50 %>
 <% end %>
+<h4> MPAA: <%= @imdb_movie.mpaa_rating %></h4>
+
 <!-- cant remember how to route to destroy -->
-<form action="/movies/<%= @movie.id %>/delete" method="get">
+<form action="/movies/<%= @imdb_movie.id %>/delete" method="get">
   <input type="hidden" name="_method" value="destroy">
   <button>Delete Task</button>
 </form>

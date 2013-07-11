@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
 #showing movie by unique id
   def show
-    @movie = Movie.find(params[:id])
+    @imdb_movie = Movie.find(params[:id])
   end
 
 #params for adding new movie
