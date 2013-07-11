@@ -1,1 +1,21 @@
-<h1>Individual movie page</h1>
+<h1><%= @movie.title %></h1>
+<% if @movie.director %>
+  <h3>Directed by: </h3><p><%= @movie.director.split('\n').first %></p>
+<% else %>
+  nil
+<% end %>
+<h3>Plot: </h3>
+  <p>
+    "<%=@movie.plot%>"
+  </p>
+
+
+<h4> Rated: <%= @movie.mpaa_rating %></h4>
+<h4> Your Rating: <%= @movie.rating %></h4>
+<% if @movie.favorite %>
+  <h3>I've watched this movie an unhealthy amount of times</h3>
+<% else %>
+  <h4>Not a favorite</h4>
+<% end %>
+
+<%= button_to 'Remove Movie', destroy_movie_path(@movie.id)%>
