@@ -1,9 +1,8 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = params[:search]
+      @movies = params[:search]
       @results = Imdb::Search.new(params[:search].to_s).movies[0..9]
-      @search = params[:search]
       @favorites = Movie.where(:favorite => true)
   end
 
@@ -19,6 +18,7 @@ class MoviesController < ApplicationController
     new_movie.title = params[:title]
     new_movie.year = params[:year]
     new_movie.director = params[:director]
+    new_movie.actors = params[:cast_members]
     new_movie.plot = params[:plot]
     new_movie.mpaa_rating = params[:mpaa_rating]
     new_movie.favorite = params[:favorite]

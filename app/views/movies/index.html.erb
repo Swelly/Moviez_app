@@ -3,7 +3,7 @@
     <input type="text" name="search">
     <button>Search</button>
 </form>
-
+<br>
 <% @results.each do |movie| %>
     <p><%= movie.title %>
         <%= button_to "Savor it", create_movie_path(
@@ -12,6 +12,7 @@
         :director => movie.director,
         :plot => movie.plot,
         :mpaa_rating => movie.mpaa_rating,
+        :actors => movie.cast_members[0,3],
         :favorite => false)%>
 
         <%= button_to "Favor-it",
@@ -20,6 +21,7 @@
         :year => movie.year,
         :director => movie.director,
         :plot => movie.plot,
+        :actors => movie.cast_members[0,3],
         :mpaa_rating => movie.mpaa_rating,
         :favorite => true)%>
 
